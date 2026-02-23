@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Mynav from './components/Mynav/Mynav';
+import Myheader from './components/Myheader/Myheader';
+import Mycard from './components/Mycard/Mycard';
+import Mymain from './components/Mymain/Mymain';
+import Mylayout from './components/Mylayout/Mylayout';
+import Myfooter from './components/Myfooter/Myfooter';
+import Mysidebar from './components/Mysidebar/Mysidebar';
+
+      const navItems = [
+        { label: "Домой", href: "#" },
+        { label: "Компоненты", href: "#components" },
+        { label: "Контакты", href: "#contacts" }
+      ];
+
+      const sidebarLinks = [
+        { label: "Документация", href: "#docs" },
+        { label: "Быстрый старт", href: "#start" },
+        { label: "О проекте", href: "#about" }
+      ];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      return (
+        <>
+          <Myheader version="v1.0" subtitle="Макет страницы на React (JSX)" />
+          <Mynav items={navItems} />
+          <div className="layout">
+            <Mymain />
+            <Mysidebar sections={sidebarLinks} />
+          </div>
+          <Myfooter />
+        </>
+      );
+    };
 
 export default App;
